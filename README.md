@@ -1,19 +1,7 @@
-# Salesforce DX Project: Next Steps
+# Salesforce DX Project: Workout app
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Since the booming of Corona virus, it is hard (for me at leaset) to show up at the gym and do my normal workouts.
 
-## How Do You Plan to Deploy Your Changes?
+With that happening, I found my health go through a tough time, which gives me an idea to make custom workouts, which include a sets of exercies with available time setup to fit my interest. During that time, I also came across this ASEAN Salesfoce Developers Challenge, which pushes me to make this app alive on the Salesforce platform. This app may lack further functions and can of course be udpated with better features but within the scope of this project, I decided to make an app that: allow users add exercies (with rough information including preview images and tutorial videos as well), from those exercises, users would choose those best exercies that they love and form a custom work, choose exercise time and rest time for each exercise. A rough reusult of total time and total calories burned for each workout will be calculated based on exercises' information. Users can also follow along the workout with a time counter and results of the workouts will be saved also.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
-# sf_workout_app
+For more information or in case you want or have a better ideas to update the app, please do not hesitate to contact me via: leminquan59@gmail.com
