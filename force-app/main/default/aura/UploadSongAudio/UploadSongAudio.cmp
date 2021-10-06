@@ -1,0 +1,16 @@
+<aura:component controller="SongUploadAudioController" 
+                implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                access="global" >
+	<!-- ATTRIBUTES -->
+    <aura:attribute name="recordId" type="String" />
+    <!-- FILE UPLOAD LIGHTNING ATTRIBUTE TAG -->
+    <div style="background-color: white; padding: 30px; border-radius: 3px;">
+    	<lightning:fileUpload label="Upload Song Audio" 
+                          name="fileUploader" 
+                          multiple="true" 
+                          accept=".pdf, .png, .jpg, .jpeg, .mp3, .m4a" 
+                          recordId="{!v.recordId}" 
+                          onuploadfinished="{!c.handleUploadFinished}" />
+	</div>   
+	
+</aura:component>

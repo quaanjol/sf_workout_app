@@ -1,0 +1,86 @@
+<apex:page docType="html-5.0">
+<html>
+    <head>
+		<apex:includeScript value="{!URLFOR($Resource.caresoft, '/cs-static-resource/cs.jquey.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.caresoft, '/cs-static-resource/cs.jssip.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.caresoft, '/cs-static-resource/cs.init.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.caresoft, '/cs-static-resource/cs.web.push.js')}"/>	
+		<apex:includeScript value="{!URLFOR($Resource.caresoft, '/cs-static-resource/cs.const.js')}"/>
+		<apex:includeScript value="{!URLFOR($Resource.caresoft, '/cs-static-resource/cs.voice.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.caresoft, '/cs-static-resource/custom.js')}"/>
+
+        <script>
+            csInit("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpcHBob25lIjoiMjgwMzEwMDEiLCJleHBpcmVkIjoiMjAyMC0xMS0zMSAwMDowMDowMCJ9.gJqzGcqwC7W3ZQe0OZykFhUHEd7g572Qvur6IEna_Gc", "benhvien");
+            var currentCallStatus = getCurrentCallStatus();
+
+            window.addEventListener('DOMContentLoaded', () => {
+                if(currentCallStatus === 'Online') {
+                    document.getElementById('status-element').textContent = 'Online';
+                    console.log("Offline currently");
+                } else {
+                    document.getElementById('status-element').textContent = 'Offline';
+                    console.log("Online currently");
+                }
+            })
+        </script>
+
+        <script>
+            function changeStatusIcon() {
+                var currentSt = getCurrentCallStatus();
+                if(currentSt == 'Online') {
+                    document.getElementById('status-element').textContent = 'Online';
+                } else {
+                    document.getElementById('status-element').textContent = 'Offline';
+                }
+            }
+
+            function transferCall() {
+                getTransferAgent();
+                csTransferCallAgent(your_agent_ipphone);
+            }
+            
+            function transferCallToAcd() {
+                csTransferCallAcd(your_acd_queue_id);
+            }
+
+            function onCallout() {
+                csCallout($('#phoneNumber').val());
+            }
+        </script>
+        
+        
+    </head>
+    <body>
+		<video id="my-video" autoplay="true" style="" src="https://capi.caresoft.vn/images/320x240.ogg">
+        </video>
+        <video id="peer-video" autoplay="true" style="" src="https://capi.caresoft.vn/images/320x240.ogg">
+        </video>
+        
+        <p>
+            Current status: <span id="status-element"></span> 
+        </p>
+
+        <button id="enable" onclick="csEnableCall()">1. Kích hoạt thoại </button><br/>
+        <button id="enable" onclick="changeCallStatus(); changeStatusIcon();">2. On/Off trạng thái</button><br/>
+        <input type="text" id="phoneNumber"/><button onclick="onCallout()">3. Gọi ra</button><br/>
+        <button onclick="endCall();">4.Kết thúc cuộc gọi ra</button><br/><br/><br/><br/>
+
+        <label id="phoneNo"></label><br/>
+        <button onclick="onAcceptCall();">I. Nhận cuộc gọi vào</button><br/>
+        <button onclick="muteCall();">II.Mute/Unmute</button><br/>
+        <button onclick="holdCall();">III.Hold/Unhold</button><br/>
+        <button onclick="endCall();">IV.Kết thúc cuộc gọi vào</button><br/>
+        <button onclick="transferCall();" id="transferCall">V.Chuyển cuộc gọi</button><br/>
+        <button onclick="transferCallToAcd();" id="transferCallAcd">VI.Chuyển cuộc gọi sang nhánh acd</button><br/>
+        <button onclick="responseTransferAgent(1);" id="transferResponseOK">VII.Chấp nhận chuyển cg</button><br/>
+        <button onclick="responseTransferAgent(0);" id="transferResponseReject">VII.Từ chối chuyển cg</button><br/>
+
+        <script>
+            var phoneNumberInput = document.getElementById('phoneNumber');
+            phoneNumberInput.onkeyup = function(e) {
+                document.getElementById('phoneNo').textContent = e.target.value;
+            }
+        </script>
+    </body>
+</html>
+</apex:page>

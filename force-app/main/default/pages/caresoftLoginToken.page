@@ -1,0 +1,19 @@
+<apex:page docType="html-5.0" controller="CaresoftJWT">
+    <html>
+        <head>
+            
+        </head>
+        <body>
+            <div style="padding: 20px;">
+                <h1>
+                Token will be here
+                </h1>
+                <p>
+                    {! quanToken }
+                    <br/><br/>
+                    Expected: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpcHBob25lIjoiMTY1MDAiLCJleHBpcmVkIjoiMjAyMi0wNy0zMCAwMDowMDowMCJ9.fDkVbyGawJ6nVDeApjWPYn5lnwDhTcBs7Rw62bX4YS4
+                </p>
+            </div>
+        </body>
+    </html>
+</apex:page>

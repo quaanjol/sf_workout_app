@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_list_view</fullName>
+    <columns>NAME</columns>
+    <columns>Main_muscle__c</columns>
+    <columns>Calo_per_hour__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Mine</filterScope>
+    <label>Custom list view</label>
+</ListView>

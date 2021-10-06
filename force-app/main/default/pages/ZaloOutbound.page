@@ -1,0 +1,5 @@
+<apex:page showHeader="false" docType="html-5.0" sidebar="false" >
+    <h1>
+        Hello World
+    </h1>
+</apex:page>

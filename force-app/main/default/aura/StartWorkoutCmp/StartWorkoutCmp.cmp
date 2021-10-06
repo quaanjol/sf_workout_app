@@ -1,0 +1,114 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId,flexipage:availableForAllPageTypes" 
+                controller="WorkoutController">
+	<!-- attributes -->
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="workout" type="Workout__c" />
+    <aura:attribute name="exercises" type="Exercise_Item__c[]" />
+	<aura:attribute name="currentExerciseIndex" type="Integer" />
+	<aura:attribute name="timeTmp" type="Double" default="0" />
+	<aura:attribute name="restTmp" type="Double" default="0" />
+	<aura:attribute name="totalTime" type="Double" default="0" />
+	<aura:attribute name="totalCalo" type="Double" default="0" />
+    <aura:attribute name="currentExerciseType" type="String" />
+    <aura:attribute name="restVideoUrl" 
+                    type="String" 
+                    default="https://res.cloudinary.com/dmbm8j7te/video/upload/v1626238356/tt67eg4svuofsfkfxbwe.mp4" 
+                    />
+    
+    <!-- methods -->
+    <aura:handler name="init" value="{!this}" action="{!c.initFunction}" />
+    
+    <!-- component starts -->
+    <div class="slds-scope">
+    	<lightning:card title="Start Workout" iconName="standard:social">
+            <p class="slds-p-horizontal_small">
+                <p>
+                	<h3 class="slds-text-heading_medium slds-m-bottom_x-small slds-m-top_large" aura:id="workout_name"></h3>
+                </p>
+            </p>
+            
+            <div>
+            	<p class="">
+                	<h5 class="slds-text-heading_medium 
+                               slds-m-bottom_x-small 
+                               slds-m-top_large 
+                               slds-align_absolute-center">
+                    	Current exercise: &nbsp; <span aura:id="current_exercise"></span>
+                    </h5>
+                    
+                    <h6 aura:id="exercise_time_info"
+                        id="other-element-with-table-label" 
+                        class="slds-text-title slds-m-bottom_small 
+                               slds-align_absolute-center">
+                    	Time: &nbsp;<span aura:id="current_exercise_time"></span> &nbsp; - Rest: &nbsp; <span aura:id="current_exercise_rest"></span>
+                    </h6>
+                    
+                    <!-- time counts section -->
+                    <p class="slds-text-heading_small 
+                              slds-align_absolute-center
+                              slds-m-bottom_x-small">
+                    	<lightning:icon variant="warning" iconName="utility:clock" alternativeText="Clock" title="Clock" />
+	                    <span aura:id="time_count">&nbsp;0s</span>
+                    </p>                    
+                </p>
+                
+                <div class="slds-align_absolute-center">
+                	<video class="slds-border_bottom slds-border_top slds-border_left slds-border_right"
+                           aura:id="tutorialVideo" height="300" loop="true">
+                        <source aura:id="videoSrc1" src="" type="video/mp4"/>
+                        <source aura:id="videoSrc2" src="" type="video/ogg"/>
+                        Your browser does not support the video tag.
+                    </video>  
+                </div>
+            </div>
+            
+            <!-- next up -->
+            <div class="slds-p-horizontal_small">
+                <div class="slds-grid slds-gutters">
+                  <div class="slds-col slds-size_2-of-3">
+					<p class="">
+                        <h5 class="slds-text-heading_medium 
+                                   slds-m-bottom_x-small 
+                                   slds-m-top_large">
+                            Next up:&nbsp;<span aura:id="next_exercise"></span>
+                        </h5>
+                        
+                        <h6 id="other-element-with-table-label" 
+                            class="slds-text-title slds-m-bottom_small ">
+                            Time:&nbsp;<span aura:id="next_exercise_time">0s</span>&nbsp;- Rest:&nbsp;<span aura:id="next_exercise_rest">0s</span>
+                        </h6>
+                    </p>
+                    <div>
+                        <img src="" alt="" aura:id="next_exercise_img" width="80" height="80" 
+                             class="slds-border_top 
+                                slds-border_right 
+                                slds-border_bottom 
+                                slds-border_left"/> 
+                    </div>
+                  </div>
+                  <div class="slds-col slds-size_1-of-3">
+                    <lightning:buttonGroup class="slds-m-top_large">
+                        <lightning:button label="Start" 
+                                          aura:id="startBtn"
+                                          variant="brand" 
+                                          onclick="{!c.startBtnClick}" />
+                        
+                        <lightning:button label="Pause" 
+                                          variant="destructive" 
+                                          aura:id="pauseBtn"
+                                          disabled="true"
+                                          onclick="{!c.pauseBtnClick}" />
+                        
+                        <lightning:button label="Skip" 
+                                          variant="neutral" 
+                                          aura:id="skipBtn"
+                                          disabled="true"
+                                          onclick="{!c.skipBtnClick}" />
+                        
+                      </lightning:buttonGroup>
+                  </div>
+                </div>
+            </div>
+        </lightning:card>
+    </div>
+</aura:component>

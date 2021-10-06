@@ -1,0 +1,55 @@
+<aura:component implements="force:lightningQuickAction,force:hasRecordId,flexipage:availableForAllPageTypes" 
+                controller="WorkoutController" >
+    <!-- attributes -->
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="workout" type="Workout__c" />
+    
+    <!-- methods -->
+    <aura:handler name="init" value="{!this}" action="{!c.initFunction}" />
+    
+    <!-- component starts -->
+    <div class="slds-scope">
+    	<lightning:card title="Workout details" iconName="standard:coaching">
+            <p class="slds-p-horizontal_small">
+                <p>
+                	<!-- <h3 aura:id="workout_name"></h3> -->
+                    <ul>
+                    	<li class="slds-border_bottom slds-m-bottom_x-small">
+                        	Total sets: <span aura:id="total_sets"></span>
+                        </li>
+                        <li class="slds-border_bottom slds-m-bottom_x-small">
+                        	Total time: <span aura:id="total_time"></span>
+                        </li>
+                        <li class="slds-border_bottom slds-m-bottom_x-small">
+                        	Total calories: <span aura:id="total_calories"></span>
+                        </li>
+                    </ul>
+                </p>
+                
+                
+                <h3 class="slds-text-heading_medium slds-m-bottom_x-small slds-m-top_large">List exericses</h3>
+                
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                  <thead>
+                    <tr class="slds-line-height_reset">
+                      <th class="" scope="col">
+                        <div class="slds-truncate" title="Exercise">Exercise</div>
+                      </th>
+                      <th class="" scope="col">
+                        <div class="slds-truncate" title="Tutorial">Tutorial</div>
+                      </th>
+                      <th class="" scope="col">
+                        <div class="slds-truncate" title="Time">Time</div>
+                      </th>
+                      <th class="" scope="col">
+                        <div class="slds-truncate" title="Rest">Rest</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody aura:id="exercise_list_tr"></tbody>
+                </table>
+            </p>
+        </lightning:card>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Main_muscle__c</fullName>
+    <externalId>false</externalId>
+    <label>Main muscle</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Arm</fullName>
+                <default>false</default>
+                <label>Arm</label>
+            </value>
+            <value>
+                <fullName>Back</fullName>
+                <default>false</default>
+                <label>Back</label>
+            </value>
+            <value>
+                <fullName>Back and biceps</fullName>
+                <default>false</default>
+                <label>Back and biceps</label>
+            </value>
+            <value>
+                <fullName>Chest</fullName>
+                <default>false</default>
+                <label>Chest</label>
+            </value>
+            <value>
+                <fullName>Chest and triceps</fullName>
+                <default>false</default>
+                <label>Chest and triceps</label>
+            </value>
+            <value>
+                <fullName>Core</fullName>
+                <default>false</default>
+                <label>Core</label>
+            </value>
+            <value>
+                <fullName>Leg</fullName>
+                <default>false</default>
+                <label>Leg</label>
+            </value>
+            <value>
+                <fullName>Lower body</fullName>
+                <default>false</default>
+                <label>Lower body</label>
+            </value>
+            <value>
+                <fullName>Shoulder</fullName>
+                <default>false</default>
+                <label>Shoulder</label>
+            </value>
+            <value>
+                <fullName>Upper body</fullName>
+                <default>false</default>
+                <label>Upper body</label>
+            </value>
+            <value>
+                <fullName>Whole body</fullName>
+                <default>false</default>
+                <label>Whole body</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

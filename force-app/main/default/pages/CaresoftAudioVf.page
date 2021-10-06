@@ -1,0 +1,62 @@
+<apex:page showHeader="false"
+           standardStylesheets="false"
+           sidebar="false"
+           applyHtmlTag="false"
+           applyBodyTag="false"
+           controller="CaresoftController"
+           docType="html-5.0">
+    
+    <!-- Import the Design System style sheet -->
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <apex:slds />
+        
+        <div class="slds-scope">
+            <!-- article -->
+            <article class="slds-card">
+              <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-doctype-audio" title="account">
+                            <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                <use xlink:href="{!URLFOR($Asset.SLDS, '/assets/icons/doctype-sprite/svg/symbols.svg#audio')}"></use>
+                            </svg>
+                            <span class="slds-assistive-text">Caresoft Audio</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <span>Caresoft Audio</span>
+                        </h2>
+                    </div>
+                </header>
+              </div>
+              <div class="slds-card__body slds-card__body_inner">
+                <br/>
+                <audio controls="controls" id="my-audio">
+                    <source id="audioSource" src="" 
+                            type="audio/mpeg"/>
+                </audio>  
+              </div>
+            </article>
+        </div>
+        
+        <script>
+            Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.CaresoftController.getCallAudio}',
+                    '{!$CurrentPage.parameters.Id}',
+                    function(result, event){
+                        if (event.status) {
+                            console.log(result);
+                            document.getElementById('audioSource').src = result;
+                            document.getElementById('my-audio').load(); //call this to just preload the audio without playing
+                        } else if (event.type === 'exception') {
+                            console.log(event.message + " " + event.where);
+                        } else {
+                            console.log("error " + event.message);
+                        }
+                    }, 
+                    {escape: true}
+                );
+        </script>
+    </html>
+</apex:page>

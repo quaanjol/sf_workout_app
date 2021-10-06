@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_calo_burned__c</fullName>
+    <description>Sum total calories burned from all inclusive exercises</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Sum total calories burned from all inclusive exercises (for one set only)</inlineHelpText>
+    <label>Total calo burned</label>
+    <summarizedField>Exercise_Item__c.Calories_burned__c</summarizedField>
+    <summaryForeignKey>Exercise_Item__c.Workout__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
